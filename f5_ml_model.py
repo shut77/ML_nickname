@@ -40,5 +40,13 @@ print(data)
 nicks_db = data
 X_new = vectorizer.transform(nicks_db)
 probs = model.predict_proba(X_new)[:,1]
+nick_sort = sorted(zip(nicks_db, probs), key=lambda x: x[1], reverse=True)
 for nick, score in zip(nicks_db, probs):
     print(nick, ': ', score)
+for n, s in nick_sort:
+    print(n, ': ', s)
+
+with open('after_ml.csv', 'w', encoding='utf-8') as file:
+    for n, s in nick_sort:
+        file.write(f'{n},{s}\n')
+

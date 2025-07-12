@@ -42,7 +42,7 @@ def nice_nick(num_nicks=200, min_len=5, max_len=9):
             ])
             nick += addition
             length = len(nick)
-
+            #
 
         if length > max_len:
             nick = nick[:max_len]

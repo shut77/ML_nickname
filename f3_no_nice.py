@@ -15,7 +15,7 @@ def in_txt_file():
 
             ugly_chars = (string.ascii_lowercase.replace('a', '').
                           replace('e', '').replace('i', '').
-                          replace('o', '').replace('u', '') + string.digits)
+                          replace('o', '').replace('u', '')) #+ string.digits)
             nick = ''.join(random.choices(ugly_chars, k=length))
 
             # Условие: мало гласных и нет красивых паттернов
@@ -40,9 +40,9 @@ def in_txt_file():
 
 
 
-#in_txt_file()
+in_txt_file()
 
-with open('ugly.csv', 'a', encoding='utf-8', newline='') as csv_file, open('ugly.txt', 'r', encoding='utf-8') as file:
+with open('ugly_and_nice.csv', 'a', encoding='utf-8', newline='') as csv_file, open('ugly.txt', 'r', encoding='utf-8') as file:
     writer = csv.writer(csv_file)
     writer.writerows((line.strip() , 0) for line in file)
 
